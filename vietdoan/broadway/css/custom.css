@@ -1,0 +1,89 @@
+html{
+  font-family: 'Raleway', serif;
+}
+body {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+.bg-black {
+  background-color: #333333;
+  color: white;
+  padding: 20px 0px;
+  font-size: 12px;
+  font-weight: bolder;
+}
+.bg-black ul, footer{
+  margin: 0 0 0 200px;
+  padding: 0px;
+}
+.bg-black ul li {
+  text-transform: uppercase;
+  display: inline;
+  margin-right: 25px;
+}
+
+.homepage {
+  background-image: url('../images/bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  height: 600px;
+  padding-top: 180px;
+}
+
+.homepage h1 {
+  color:  #333333;
+  font-size: 70px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 90px;
+}
+
+.btn-black  {
+  background-color: #333333;
+  color: white;
+  padding: 15px 40px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.btn-white {
+    border: 1px solid black;
+    font-size: 10px;
+    text-decoration: none;
+    padding: 10px 40px;
+    color: black;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+
+.content {
+  padding: 100px 0px;
+  text-align: center;
+}
+.row {
+  margin: 0 auto;
+  width: 70%;
+}
+.col {
+  width: 33%;
+  display:inline-block;
+
+}
+.col h2 {
+  text-transform: uppercase;
+  font-size: 20px;
+}
+.col img {
+  width: 40px;
+  height: 40px;
+}
+
+.col p {
+  margin: 0px 50px 40px ;
+  font-size: 14px;
+}
