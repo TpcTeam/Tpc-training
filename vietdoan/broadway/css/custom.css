@@ -36,7 +36,7 @@ h1 {
 
 .homepage h1 {
   color:  #333333;
-  font-size: 70px;
+  font-size: 50px;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 90px;
@@ -62,17 +62,17 @@ h1 {
 }
 
 .content {
-  padding: 100px 0px;
   text-align: center;
+  margin-bottom: 100px;
 }
 .row {
   margin: 0 auto;
-  width: 70%;
+  width: 81%;
+  display: table;
 }
 .col {
-  width: 33%;
-  display:inline-block;
-
+  margin-top: 100px;
+  display: inline-block;
 }
 .col h2 {
   text-transform: uppercase;
@@ -86,4 +86,36 @@ h1 {
 .col p {
   margin: 0px 50px 40px ;
   font-size: 14px;
+}
+
+@media (min-width: 992px ) {
+  .col {
+    width: 27%;
+  }
+
+  .homepage h1 {
+    font-size: 70px;
+  }
+}
+@media (max-width: 768px ) {
+  .col p {
+    font-size: 12px;
+  }
+  .bg-black ul, footer{
+    margin: 0 0 0 60px;
+  }
+}
+
+@media (max-width: 350px ) {
+  .bg-black ul, footer{
+    margin: 0 0 0 30px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 230px ) {
+  .btn-black {
+    font-size: 13px;
+    padding: 7px 20px;
+  }
 }
