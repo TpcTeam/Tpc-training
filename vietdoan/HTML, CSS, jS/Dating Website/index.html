@@ -12,7 +12,7 @@
         </header>
         <section class="section-form">
             <div class="row">
-                <form method="post" action="#" class="contact-form">
+                <form method="post" enctype="multipart/form-data" action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" class="contact-form">
                     <fieldset>
                         <legend>Your Face</legend>
                         <div class="row">
@@ -151,17 +151,6 @@
                 </form>
             </div>
         </section>
-        <script>
-            window.onload = function() {
-                var files = document.querySelectorAll("input[type=file]");
-                files[0].addEventListener("change", function(e) {
-                    if(this.files && this.files[0]) {
-                        var reader = new FileReader();
-                        reader.onload = function(e) { document.getElementById("preview").setAttribute("src", e.target.result); }
-                        reader.readAsDataURL(this.files[0]);
-                    }
-                });
-            }
-        </script>
+        <script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
     </body>
 </html>

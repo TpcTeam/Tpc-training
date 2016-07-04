@@ -1,22 +1,22 @@
 var colors = ["blue", "cyan", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"];
-var target_index = Math.floor(Math.random() * 10);
-var target = colors[target_index];
+var targetIndex = Math.floor(Math.random() * 10);
+var target = colors[targetIndex];
 var finished = false;
-var guess_color;
+var guessColor;
 var cnt = 0;
-var guess_color_index;
+var guessColorIndex;
 while (!finished) {
     cnt++;
-    guess_color = prompt("I am thinking of one of those colors:\n" 
+    guessColor = prompt("I am thinking of one of those colors:\n" 
                          + "blue, cyan, gold, gray, green, magenta, orange, white, yellow\n"
                          + "What color am I thinking of?");
-    guess_color_index = colors.indexOf(guess_color);
-    if (guess_color_index != -1) check_guess();
+    guessColorIndex = colors.indexOf(guessColor);
+    if (guessColorIndex != -1) checkGuess();
     else alert("Sorry, I don't recognize your color.\n" + "Please try again.");
 }
 
-function check_guess() {
-    if (guess_color_index == target_index) {
+function checkGuess() {
+    if (guessColorIndex == targetIndex) {
         myBody=document.getElementsByTagName("body")[0];
         myBody.style.background = target;
         alert("Congratulations! You have guessed the color!\n" + "It took you " + cnt + " guesses to finish the game!\n"
@@ -25,7 +25,7 @@ function check_guess() {
         return;
     }
     var str;
-    if (guess_color_index < target_index) str = "lower";
+    if (guessColorIndex < targetIndex) str = "lower";
     else str = "higher";
     alert("Sorry, your guess is not correct!\n" + "Hint: your color is alphabetically " + str + " than mine.\n" 
           + "Please try again.");

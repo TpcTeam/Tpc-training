@@ -1,5 +1,5 @@
-var theLeftSide = document.getElementById("leftSide");
-var theRightSide = document.getElementById("rightSide");
+var theLeftSide = document.getElementById("left-side");
+var theRightSide = document.getElementById("right-side");
 var theBody = document.getElementsByTagName("body")[0];
 var numberImg = 6;
 var i;
