@@ -1,0 +1,96 @@
+<!DOCTYPE>
+<html>
+<head>
+    <script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
+    <style>
+        fieldset {
+            background : lightyellow;
+            border : 10px solid yellow;
+            margin-bottom : 10px;
+            width : 720px;
+        }
+        label:hover { font-size:40px }
+        label {
+            width: 180px;
+            display: inline-block;
+            text-align: right top;
+        }
+        label checkbox {
+            width: auto;
+        }
+        label radio {
+            width: auto;
+        }
+        .wrange {
+            text-align: center;
+        }
+        textarea {
+            width: 360px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Please Enter Your Details For Our Dating Website! </h1>
+    <fieldset>
+        <legend> Your Face </legend>
+        <form method="get" action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" enctype="multipart/form-data">
+            <label for="image"> Your image: </label>
+            <input type="file" name="fileUpload" required> <br>
+            <label for="imagePreview"> Image Preview: </label>
+            <img id="preview">
+        </form>
+    </fieldset> <br>
+    <fieldset>
+        <legend> Your General Details </legend>
+        <form method="get" action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" enctype="multipart/form-data">
+            <label for="name"> Name: </label>
+            <input type="text" name="Name" placeholder="Your full name" required> <br>
+            <label for="gender"> Gender: </label>
+            <input type="radio" value="male" required> Male
+            <input type="radio" value="female" required> Female <br>
+            <label for="age"> Age: </label>
+            <input type="number" name="age" required> <br>
+            <label for="birthday"> Date of Birth: </label>
+            <input type="date" name="birthday" required> <br>
+            <label for="favcolor"> Favorite color: </label>
+            <input type="color" name="favcolor" required> <br>
+            <label for="country"> Which country: </label>
+            <select name="country" required>
+                <option value="none"> </option>
+                <option value="cn"> China </option>
+                <option value="vn"> Vietnam </option>
+                <option value="hk"> HongKong </option>
+                <option value="sg"> Singapore </option>
+                <option value="us"> United States </option>
+            </select>
+        </form>
+    </fieldset> <br>
+    <fieldset>
+        <legend> Your Indicators </legend>
+        <form method="get" action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" enctype="multipart/form-data">
+            <label for="height"> Height: </label>
+            <span class="wrange"> Short </span> <input type="range" min="0" max="100" required> <span class="wrange"> Tall </span> <br>
+            <label for="salary"> Salary: </label>
+            <span class="wrange"> Poor </span> <input type="range" min="0" max="100" required> <span class="wrange"> Rich </span> <br>
+        </form>
+    </fieldset> <br>
+    <fieldset>
+        <legend> Your Contact Information </legend>
+        <form method="get" action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" enctype="multipart/form-data">
+            <label for="email"> Email: </label>
+            <input type="email" name="email" required> <br>
+            <label for="tel"> Mobile: </label>
+            <input type="tel" name="tel" required> <br>
+            <label for="address"> Address: </label>
+            <textarea name="address" required>
+            </textarea> <br>
+            <label type="method"> Method to contact you: </label>
+            <input type="checkbox" name="method" value="email" required> Email
+            <input type="checkbox" name="method" value="whatsapp" required> Whatsapp
+            <input type="checkbox" name="method" value="inapp" required> In-app Chat
+        </form>
+    </fieldset> <br>
+    <input type="submit">
+</body>
+</html>
