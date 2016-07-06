@@ -6,7 +6,7 @@ var guess_input;
 function do_game() {
 
   var correct = false;
-  alert(target);
+  //alert(target);
   var count=0;
 
 while (!correct)
