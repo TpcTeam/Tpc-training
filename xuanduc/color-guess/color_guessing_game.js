@@ -3,14 +3,13 @@ var target_index = Math.floor(Math.random()*10) + 1;
 var target = colors[target_index];
 var guess_input;
 
-function do_game() {
+function doGame() {
 
   var correct = false;
   //alert(target);
   var count=0;
 
-while (!correct)
-  {
+while (!correct){
   guess_input = prompt("I am thinking of one of these colors:"
   + "\n" + colors.join(", ") + "\n" + "What color am I thinking of?");
   correct = check_guess();
