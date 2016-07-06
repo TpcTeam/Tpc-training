@@ -1,7 +1,7 @@
 var colors = ["blue","cyan","gold","gray","green","magenta","orange","red","white","yellow"];
-var target_index = Math.floor(Math.random()*10) + 1;
-var target = colors[target_index];
-var guess_input;
+var targetIndex = Math.floor(Math.random()*10) + 1;
+var target = colors[targetIndex];
+var guessInput;
 
 function doGame() {
 
@@ -10,9 +10,9 @@ function doGame() {
   var count=0;
 
 while (!correct){
-  guess_input = prompt("I am thinking of one of these colors:"
+  guessInput = prompt("I am thinking of one of these colors:"
   + "\n" + colors.join(", ") + "\n" + "What color am I thinking of?");
-  correct = check_guess();
+  correct = checkGuess();
   count++;
   }
 
@@ -20,21 +20,21 @@ while (!correct){
 
 }
 
-function check_guess() {
+function checkGuess() {
 
-  if (colors.indexOf(guess_input) == -1)
+  if (colors.indexOf(guessInput) == -1)
   {
     alert("Sorry, I don't recognize your color.\nPlease try again.");
     return false;
   }
 
-  if (guess_input < target)
+  if (guessInput < target)
   {
     alert("Sorry, your guess is not correct!\nHint: your color is alphabetically higher than mine.\nPlease try again.");
     return false;
   }
 
-  if (guess_input > target)
+  if (guessInput > target)
   {
     alert("Sorry, your guess is not correct!\nHint: your color is alphabetically lower than mine.\nPlease try again.");
     return false;
