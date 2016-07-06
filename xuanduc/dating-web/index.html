@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+  <title>Dating Website</title>
+  <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+  <h1>Please Enter Your Details For Our Dating Website!</h1>
+
+  <form method="post" enctype="multipart/form-data" action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php">
+
+    <fieldset class="yellow-field">
+      <legend>Your Face</legend>
+
+      <label>Your image: </label>
+      <input type="file" name="Choose File" required> <br>
+
+      <label>Image preview: </label>
+      <img id="preview">
+
+    </fieldset>
+
+    <fieldset class="yellow-field">
+      <legend>Your general details</legend>
+
+      <label>Name: </label>
+      <input type="text" placeholder="Your full name" required> <br>
+
+      <label>Gender: </label>
+      <input type="radio" name="Gender" required>Male
+      <input type="radio" name="Gender" required>Female <br>
+
+      <label>Age: </label>
+      <input type="number" required> <br>
+
+      <label>Date of birth: </label>
+      <input type="date"> <br>
+
+      <label>Favorite color: </label>
+      <input type="color"> <br>
+
+      <label>Which country: </label>
+      <select name="country">
+        <option value="noselection">no selection</option>
+        <option value="eng">England</option>
+        <option value="fra">France</option>
+        <option value="ger">Germany</option>
+        <option value="esp">Spain</option>
+        <option value="ned">Netherlands</option>
+      </select>
+
+    </fieldset>
+
+    <fieldset class="yellow-field">
+      <legend>Your Indicators</legend>
+
+      <label>Height: </label> <div id="red">Short</div>
+      <input type="range" min="0" max="100"> <div id="purple">Tall</div> <br>
+
+      <label>Salary: </label> <div id="red">Poor</div>
+      <input type="range" min="0" max="100"> <div id="purple">Rich</div>
+
+    </fieldset>
+
+    <fieldset class="yellow-field">
+      <legend>Your Contact Information</legend>
+
+      <label>Email: </label>
+      <input type="email" required> <br>
+
+      <label>Mobile: </label>
+      <input type="tel"> <br>
+
+      <label>Address: </label>
+      <textarea></textarea> <br>
+
+      <label>Method to contact you: </label>
+      <input type="checkbox">Email
+      <input type="checkbox">Whatsapp
+      <input type="checkbox">In-app chat
+
+    </fieldset>
+
+    <input type="submit">
+
+  </form>
+
+  <script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
+
+</body>
+
+</html>
