@@ -51,21 +51,40 @@
                         </li>
                         <li class="active"><a href="contactus.html"><i class="fa fa-envelope-o"></i>Contact</a></li>
                 </ul>
-                <form class="navbar-form navbar-right">
-                    <div class="form-group form-group-sm">
-                        <input type="text" class="form-control" placeholder="Email"/>
-                        <input type="text" class="form-control" placeholder="Password"/>
-                        <label class="checkbox-inline" style="color:white;">
-                            <input type="checkbox" name="remember" value=""/>
-                            <strong>Remember me</strong>
-                        </label>
-                        <button type="submit" class="btn btn-info btn-sm">Sign in</button>
-                    </div>
-                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a data-toggle="modal" data-target="#loginModal">
+                    <span class="glyphicon glyphicon-log-in"></span> Login</a>
+                    </li>
+                </ul>
             </div>
 
         </div>
     </nav>
+
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="width: 620px;">
+        <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Login </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <input type="text" class="form-control input-sm" placeholder="Email"/>
+                            <input type="text" class="form-control input-sm" placeholder="Password"/>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="remember" value=""/>Remember me
+                            </label>
+                            <button type="submit" class="btn btn-info btn-sm">Sign in</button>
+                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <header class="jumbotron">
 
@@ -84,7 +103,6 @@
                 </div>
                 <div class="col-xs-6 col-sm-2">
                     <p style="padding:40px;"></p>
-                    <a class="btn btn-warning btn-lg" href="index.html#reserve-form">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -248,6 +266,4 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-
-
 </body></html>
