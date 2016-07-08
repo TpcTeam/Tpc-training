@@ -1,102 +1,71 @@
 'use strict';
 
-var app = angular.module('confusionApp',[]);
-app.controller('DishDetailController', ['$scope', function($scope) {
-  var dish = {
-    name:'Uthapizza',
-    image: 'images/uthapizza.png',
-    category: 'mains',
-    label:'Hot',
-    price:'4.99',
-    description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
-    comments: [
-     {
-         rating:5,
-         comment:"Imagine all the eatables, living in conFusion!",
-         author:"John Lemon",
-         date:"2012-10-16T17:57:28.556094Z"
-     },
-     {
-         rating:4,
-         comment:"Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-         author:"Paul McVites",
-         date:"2014-09-05T17:57:28.556094Z"
-     },
-     {
-         rating:3,
-         comment:"Eat it, just eat it!",
-         author:"Michael Jaikishan",
-         date:"2015-02-13T17:57:28.556094Z"
-     },
-     {
-         rating:4,
-         comment:"Ultimate, Reaching for the stars!",
-         author:"Ringo Starry",
-         date:"2013-12-02T17:57:28.556094Z"
-     },
-     {
-         rating:2,
-         comment:"It's your birthday, we're gonna party!",
-         author:"25 Cent",
-         date:"2011-12-02T17:57:28.556094Z"
-     }
-    ]
-  };
+angular.module('confusionApp', ['ui.router'])
+.config(function($stateProvider, $urlRouterProvider) {
+        $stateProvider
 
-  $scope.toggleDetails = function() {
-    $scope.showDetails = !$scope.showDetails;
-  };
+            // route for the home page
+            .state('app', {
+                url:'/',
+                views: {
+                    'header': {
+                        templateUrl : 'views/header.html',
+                    },
+                    'content': {
+                        templateUrl : 'views/home.html',
+                        controller  : 'IndexController'
+                    },
+                    'footer': {
+                        templateUrl : 'views/footer.html',
+                    }
+                }
 
-  $scope.sortBy = '';
-  $scope.showDetails = false;
-  $scope.dish = dish;
-}]);
+            })
 
-app.controller('ContactController', ['$scope', function($scope) {
-  $scope.feedback = {
-    mychannel:"",
-    firstName:"",
-    lastName:"",
-    agree:false,
-    email:""
-  };
-  $scope.channels = [{value:"tel", label:"Tel."}, {value:"Email",label:"Email"}];
-  $scope.invalidChannelSelection = false;
-}])
+            // route for the aboutus page
+            .state('app.aboutus', {
+                url:'aboutus',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/aboutus.html',
+                        controller  : 'AboutController'
+                    }
+                }
+            })
 
-.controller('FeedbackController', ['$scope', function($scope) {
-  $scope.sendFeedback = function() {
-    console.log($scope.feedback);
-    if ($scope.feedback.agree && $scope.feedback.mychannel === "" && !$scope.feedback.mychannel) {
-      $scope.invalidChannelSelection = true;
-      console.log('incorrect');
-    } else {
-      $scope.invalidChannelSelection = false;
-      $scope.feedback = {mychannel:"", firstName:"", lastName:"",
-                         agree:false, email:"" };
-      $scope.feedback.mychannel="";
+            // route for the contactus page
+            .state('app.contactus', {
+                url:'contactus',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/contactus.html',
+                        controller  : 'ContactController'
+                    }
+                }
+            })
 
-      $scope.feedbackForm.$setPristine();
-      console.log($scope.feedback);
-    }
-  };
-}])
+            // route for the menu page
+            .state('app.menu', {
+                url: 'menu',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/menu.html',
+                        controller  : 'MenuController'
+                    }
+                }
+            })
 
-.controller('DishCommentController', ['$scope', function($scope) {
-  $scope.name = '';
-  $scope.comment = '';
-  $scope.rating = '5';
-  $scope.sendComment = function() {
-    $scope.dish.comments.push({
-      author: $scope.name,
-      comment: $scope.comment,
-      rating: $scope.rating,
-      date: new Date().toISOString()
-    });
+            // route for the dishdetail page
+            .state('app.dishdetails', {
+                url: 'menu/:id',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/dishdetail.html',
+                        controller  : 'DishDetailController'
+                   }
+                }
+            });
 
-    $scope.name = '';
-    $scope.comment = '';
-    $scope.rating = '5';
-    $scope.feedbackForm.$setPristine();
-  };
-}]);
+        $urlRouterProvider.otherwise('/');
+    })
+;
