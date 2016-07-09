@@ -8,9 +8,9 @@
          content must come *after* these tags -->
     <title>Ristorante Con Fusion: About Us</title>
         <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap-social.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 </head>
@@ -52,7 +52,7 @@
                         <li class="active"><a href="contactus.html"><i class="fa fa-envelope-o"></i>Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a data-toggle="modal" data-target="#loginModal">
+                    <li><a id="login-button">
                     <span class="glyphicon glyphicon-log-in"></span> Login</a>
                     </li>
                 </ul>
@@ -61,12 +61,12 @@
         </div>
     </nav>
 
-    <div id="loginModal" class="modal fade" role="dialog">
+    <div id="login-modal" class="modal fade" role="dialog">
         <div class="modal-dialog" style="width: 620px;">
         <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" id="close-login-modal">&times;</button>
                     <h4 class="modal-title">Login </h4>
                 </div>
                 <div class="modal-body">
@@ -78,7 +78,7 @@
                                 <input type="checkbox" name="remember" value=""/>Remember me
                             </label>
                             <button type="submit" class="btn btn-info btn-sm">Sign in</button>
-                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-default btn-sm" id="cancel-login">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -263,7 +263,22 @@
         </div>
     </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            //Login Modal Handling
+            $("#login-button").click(function(){
+                $("#login-modal").modal('show'); 
+            });
+            $("#cancel-login").click(function(){
+                $("#login-modal").modal('hide');    
+            });
+            $("#close-login-modal").click(function(){
+                $("#login-modal").modal('hide');    
+            });
+        });
+    </script>
 </body></html>
