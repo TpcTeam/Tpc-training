@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('confusionApp')
-
-        .service('menuFactory', function() {
+        .constant("baseURL","http://localhost:3000/")
+        .service('menuFactory', ['$http', 'baseURL', function($http, baseURL) {
 
             var dishes=[
                          {
@@ -187,14 +187,11 @@ angular.module('confusionApp')
             ];
 
                 this.getDishes = function(){
-
-                    return dishes;
-
+                  return $http.get(baseURL+"dishes");;
                 };
 
                 this.getDish = function (index) {
-
-                    return dishes[index];
+                    return $http.get(baseURL+"dishes/"+index);
                 };
 
                 // implement a function named getPromotion
@@ -203,7 +200,7 @@ angular.module('confusionApp')
                   return promotions[index];
                 };
 
-        })
+        }])
 
         .factory('corporateFactory', function() {
 
