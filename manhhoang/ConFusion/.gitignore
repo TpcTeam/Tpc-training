@@ -1,0 +1,6 @@
+bower_components
+.DS_Store
+bower.json
+app/fonts
+app/images
+app/styles/bootstrap-social.css
