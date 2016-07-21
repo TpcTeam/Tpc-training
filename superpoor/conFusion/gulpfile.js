@@ -33,7 +33,7 @@ gulp.task('default', ['clean'], function() {
 
 gulp.task('usemin',['jshint'], function () {
   return gulp.src([
-        './app/index.html'
+        './app/**/*.html'
       ])
       .pipe(usemin({
         css:[minifycss(),rev()],
@@ -55,14 +55,14 @@ gulp.task('copyfonts', function() {
    .pipe(gulp.dest('./dist/fonts'));
    gulp.src('./bower_components/bootstrap/dist/fonts/**/*.{ttf,woff,eof,svg}*')
    .pipe(gulp.dest('./dist/fonts'));
-   gulp.src('./app/views/*.html')
-   .pipe(gulp.dest('./dist/views'));
+  //  gulp.src('./app/views/*.html')
+  //  .pipe(gulp.dest('./dist/views'));
 });
 
 // Watch
 gulp.task('watch', ['browser-sync'], function() {
   // Watch .js files
-  gulp.watch('{app/scripts/**/*.js,app/styles/**/*.css,app/**/*.html}', ['usemin','copyfonts']);
+  gulp.watch('{app/scripts/**/*.js,app/styles/**/*.css,app/**/*.html}', ['usemin']);
       // Watch image files
   gulp.watch('app/images/**/*', ['imagemin']);
 
