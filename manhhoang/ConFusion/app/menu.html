@@ -9,12 +9,13 @@
          content must come *after* these tags -->
     <title>Ristorante Con Fusion: Menu</title>
     <!-- Bootstrap -->
+    <!-- build:css styles/main.css -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="styles/bootstrap-social.css" rel="stylesheet">
     <link href="styles/mystyles.css" rel="stylesheet">
-
+    <!-- endbuild -->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,25 +29,26 @@
     <!-- Menu Start -->
 
     <div class="container">
-        <div class="row row-content" ng-controller="menuController as menuCtrl">
+        <div class="row row-content" ng-controller="menuController">
             <div class="col-xs-12">
+                <button ng-click="toggleDetails()" class="btn btn-primary btn-xs pull-right" type="button">{{showDetails ? "Hide Details" : "Show Details"}}</button>
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" ng-class="{active:menuCtrl.isSelected(1)}">
-                        <a href="#" ng-click="menuCtrl.select(1)" aria-control="all menu" role="tab">The Menu</a>
+                    <li role="presentation" ng-class="{active:isSelected(1)}">
+                        <a href="#" ng-click="select(1)" aria-control="all menu" role="tab">The Menu</a>
                     </li>
-                    <li role="presentation" ng-class="{active:menuCtrl.isSelected(2)}">
-                        <a href="#" ng-click="menuCtrl.select(2)" aria-control="appetizers" role="tab">Appetizers</a>
+                    <li role="presentation" ng-class="{active:isSelected(2)}">
+                        <a href="#" ng-click="select(2)" aria-control="appetizers" role="tab">Appetizers</a>
                     </li>
-                    <li role="presentation" ng-class="{active:menuCtrl.isSelected(3)}">
-                        <a href="#" ng-click="menuCtrl.select(3)" aria-control="mains" role="tab">Mains</a>
+                    <li role="presentation" ng-class="{active:isSelected(3)}">
+                        <a href="#" ng-click="select(3)" aria-control="mains" role="tab">Mains</a>
                     </li>
-                    <li role="presentation" ng-class="{active:menuCtrl.isSelected(4)}">
-                        <a href="#" ng-click="menuCtrl.select(4)" aria-control="desserts" role="tab">Desserts</a>
+                    <li role="presentation" ng-class="{active:isSelected(4)}">
+                        <a href="#" ng-click="select(4)" aria-control="desserts" role="tab">Desserts</a>
                     </li>
                 </ul>
                 <div class="tab-content">
                     <ul class="media-list tab-pane active">
-                        <li class="media" ng-repeat="dish in menuCtrl.dishes | filter:menuCtrl.filtText">
+                        <li class="media" ng-repeat="dish in dishes | filter:filtText">
                             <div class="media-left media-middle">
                                 <a href="#">
                                     <img class="media-object img-thumbnail" ng-src={{dish.image}}>
@@ -57,7 +59,7 @@
                                     <span class="label label-danger">{{dish.label}}</span> 
                                     <span class="badge">{{dish.price | currency:"$"}}</span>
                                 </h2>
-                                <p>{{dish.description}}</p>
+                                <p ng-show="showDetails">{{dish.description}}</p>
                             </div>
                         </li>
                     </ul>
@@ -67,68 +69,10 @@
     </div>
 
     <!-- Script Tags Start-->
+    <!-- build:js scripts/main.js -->
     <script src="../bower_components/angular/angular.min.js"></script>
-    <script>
-        var app = angular.module('confusionApp', []);
-        app.controller('menuController', function(){
-            this.tab = 1;
-            this.filtText = "";
-            var dishes = [
-                {
-                    name: 'Uthapizza',
-                    image: 'images/uthapizza.png',
-                    category: 'main',
-                    label: 'Hot',
-                    price: '4.99',
-                    description: 'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
-                    comment: ''
-                },
-                {
-                    name: 'Zucchipakoda',
-                    image: 'images/zucchipakoda.png',
-                    category: 'appetizer',
-                    label: '',
-                    price: '1.99',
-                    description: 'Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce',
-                    comment: ''
-                },
-                {
-                    name: 'Vadonut',
-                    image: 'images/vadonut.png',
-                    category: 'appetizer',
-                    label: 'New',
-                    price: '1.99',
-                    description:'A quintessential ConFusion experience, is it a vada or is it a donut?',
-                    comment: ''
-                },
-                {
-                    name: 'ElaiCheese Cake',
-                    image: 'images/elaicheesecake.png',
-                    category: 'dessert',
-                    label: '',
-                    price: '2.99',
-                    description: 'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
-                    comment: ''
-                }];
-                this.dishes = dishes;
-                this.select = function(setTab){
-                    this.tab = setTab;
-                    if (this.tab === 2) {
-                        this.filtText = "appetizer";
-                    } else if (this.tab === 3) {
-                        this.filtText = "main";
-                    } else if (this.tab === 4) {
-                        this.filtText = "dessert";
-                    } else {
-                        this.filtText = "";
-                    }
-                };
-                this.isSelected = function(checkTab) {
-                    return (this.tab === checkTab);
-                };
-        });
-    </script>
-
+    <script src="scripts/app.js"></script>
+    <!-- endbuild -->
 </body>
 
 </html>
