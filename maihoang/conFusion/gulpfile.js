@@ -22,19 +22,25 @@ gulp.task('jshint', function() {
 
 // Clean
 gulp.task('clean', function() {
-  return del(['dist']);
+  return del(['dist', 'json-server/public']);
 });
 
 // Default task
 gulp.task('default', ['clean'], function() {
-  gulp.start('usemin', 'imagemin', 'copyfonts');
+  gulp.start('usemin', 'imagemin', 'copyfonts', 'copyviews');
+});
+
+var rename = require("gulp-rename");
+
+gulp.task('copydist', function() {
+    return gulp.src('dist').pipe(gulp.dest('json-server/public'));
 });
 
 gulp.task('usemin', ['jshint'], function() {
-  return gulp.src('./app/menu.html')
+  return gulp.src('./app/**/*.html')
     .pipe(usemin({
       css: [minifycss(), rev()],
-      js: [uglify(), rev()]
+      js: [ngannotate(), uglify(), rev()]
     }))
     .pipe(gulp.dest('dist/'));
 });
@@ -60,6 +66,11 @@ gulp.task('copyfonts', ['clean'], function() {
     .pipe(gulp.dest('./dist/fonts'));
 });
 
+gulp.task('copyviews', ['clean'], function() {
+    gulp.src('./app/views/*.html')
+        .pipe(gulp.dest('./dist/views'));
+});
+
 // Watch
 gulp.task('watch', ['browser-sync'], function() {
   // Watch .js files
@@ -81,7 +92,7 @@ gulp.task('browser-sync', ['default'], function() {
   browserSync.init(files, {
     server: {
       baseDir: "dist",
-      index: "menu.html"
+      index: "index.html"
     }
   });
   // Watch any files in dist/, reload on change
@@ -90,7 +101,7 @@ gulp.task('browser-sync', ['default'], function() {
 
 var ngannotate = require('gulp-ng-annotate');
 gulp.task('usemin', ['jshint'], function() {
-  return gulp.src('./app/menu.html')
+  return gulp.src('./app/index.html')
     .pipe(usemin({
       css: [minifycss(), rev()],
       js: [ngannotate(), uglify(), rev()]
