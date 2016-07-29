@@ -5,7 +5,7 @@ angular.module('confusionApp')
 .controller('MenuController', ['$scope', 'menuFactory', function ($scope, menuFactory) {
 
   $scope.tab = 1;
-  $scope.filtText = '';
+  $scope.filtText = "";
   $scope.showDetails = false;
   $scope.showMenu = false;
   $scope.message = "Loading ...";
@@ -110,12 +110,12 @@ angular.module('confusionApp')
 
 .controller('DishCommentController', ['$scope', 'menuFactory', function ($scope, menuFactory) {
   $scope.mycomment = {
-    rating: '5',
+    rating: "5",
     comment: "",
     author: "",
     date: ""
   };
-  $scope.ratings = ['1', '2', '3', '4', '5'];
+  $scope.ratings = ["1", "2", "3", "4", "5"];
   $scope.submitComment = function () {
 
     $scope.mycomment.date = new Date().toISOString();
@@ -131,7 +131,7 @@ angular.module('confusionApp')
     $scope.commentForm.$setPristine();
 
     $scope.mycomment = {
-      rating: '5',
+      rating: "5",
       comment: "",
       author: "",
       date: ""
