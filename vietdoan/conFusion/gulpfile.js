@@ -31,7 +31,7 @@ gulp.task('default', ['clean'], function () {
   gulp.start('usemin', 'imagemin', 'copyfonts');
 });
 gulp.task('usemin', ['jshint'], function () {
-  return gulp.src('./app/menu.html')
+  return gulp.src('./app/**/*.html')
     .pipe(usemin({
       css: [minifycss(), rev()],
       js: [ngannotate(), uglify(), rev()]
@@ -81,7 +81,7 @@ gulp.task('browser-sync', ['default'], function () {
   browserSync.init(files, {
     server: {
       baseDir: "dist",
-      index: "menu.html"
+      index: "index.html"
     }
   });
   // Watch any files in dist/, reload on change
