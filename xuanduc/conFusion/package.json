@@ -2,7 +2,7 @@
   "name": "conFusion",
   "private": true,
   "devDependencies": {
-    "browser-sync": "^2.13.0",
+    "browser-sync": "^2.14.0",
     "del": "^2.2.1",
     "gulp": "^3.9.1",
     "gulp-cache": "^0.4.5",
