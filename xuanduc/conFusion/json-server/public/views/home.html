@@ -5,21 +5,18 @@
       <h3 align=center>Our Lipsmacking Culinary Creations</h3>
     </div>
     <div class="col-xs-12 col-sm-9 col-sm-pull-3">
-      <div ng-if="!showDish">
-        <h3>{{message}}</h3>
-      </div>
-      <div class="media" ng-if="showDish">
+      <div class="media">
         <div class="media-left media-middle">
-          <a ui-sref="app.dishdetails({id: 0})">
-            <img class="media-object img-thumbnail" ng-src={{dish.image}} alt={{dish.name}}>
+          <a ui-sref="">
+            <img class="media-object img-thumbnail" ng-src={{dishes[0].image}} alt={{dishes[0].name}}>
           </a>
         </div>
         <div class="media-body">
-          <h2 class="media-heading">{{dish.name}}
-            <span class="label label-danger">{{dish.label}}</span>
-            <span class="badge">{{dish.price | currency}}</span>
+          <h2 class="media-heading">{{dishes[0].name}}
+            <span class="label label-danger">{{dishes[0].label}}</span>
+            <span class="badge">{{dishes[0].price | currency}}</span>
           </h2>
-          <p>{{dish.description}}</p>
+          <p>{{dishes[0].description}}</p>
         </div>
       </div>
     </div>
@@ -58,7 +55,7 @@
       <div class="media">
         <div class="media-left media-middle">
           <a ui-sref="">
-            <img class="media-object img-thumbnail" ng-src={{exChef.image}} alt={{exChef.name}}>
+            <img class="media-object img-thumbnail" ng-src={{promotion.image}} alt={{promotion.name}}>
           </a>
         </div>
         <div class="media-body">
