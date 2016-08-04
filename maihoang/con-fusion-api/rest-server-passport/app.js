@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-
+var authenticate = require('./authenticate');
 var config = require('./config');
 
 mongoose.connect(config.mongoUrl);
@@ -23,6 +22,7 @@ var users = require('./routes/users');
 var dishRouter = require('./routes/dishRouter');
 var promoRouter = require('./routes/promoRouter');
 var leaderRouter = require('./routes/leaderRouter');
+var favoriteRouter = require('./routes/favoriteRouter');
 
 var app = express();
 
@@ -39,20 +39,14 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 
-// passport config
-var User = require('./models/user');
-app.use(passport.initialize());
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(passport.initialize());
 app.use('/', routes);
 app.use('/users', users);
 app.use('/dishes', dishRouter);
 app.use('/promotions', promoRouter);
 app.use('/leadership', leaderRouter);
+app.use('/favorites', favoriteRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -82,6 +76,16 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: {}
   });
+});
+
+// Secure traffic only
+app.all('*', function(req, res, next) {
+  console.log('req start: ', req.secure, req.hostname, req.url, app.get('port'));
+  if (req.secure) {
+    return next();
+  };
+
+  res.redirect('https://' + req.hostname + ':' + app.get('secPort') + req.url);
 });
 
 module.exports = app;

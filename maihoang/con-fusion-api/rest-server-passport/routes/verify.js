@@ -45,7 +45,7 @@ exports.verifyAdmin = function(req, res, next) {
         return next(err);
       } else {
         req.decoded = decoded;
-        if (!req.decoded._doc.admin) {
+        if (!req.decoded.admin) {
           var err = new Error('You are not an admin!');
           err.status = 403;
           return next(err);
