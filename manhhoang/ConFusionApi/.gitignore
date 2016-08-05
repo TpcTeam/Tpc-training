@@ -4,3 +4,12 @@ node-express/server-1.js
 node-express/server-2.js
 node-express/server-3.js
 node-express/server-4.js
+node-express-gen
+node-mongodb
+mongodb
+node-mongoose/node_modules
+node-mongoose/server-1.js
+node-mongoose/server-2.js
+node-mongoose/server-3.js
+node-mongoose/models/dishes-1.js
+node-mongoose/models/dishes-3.js
