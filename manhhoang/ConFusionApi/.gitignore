@@ -13,3 +13,13 @@ node-mongoose/server-2.js
 node-mongoose/server-3.js
 node-mongoose/models/dishes-1.js
 node-mongoose/models/dishes-3.js
+basic-auth
+rest-server-passport/bin
+rest-server-passport/node_modules
+rest-server-passport/npm-debug.log
+rest-server-passport/public
+rest-server-passport/views
+rest-server-passport/models/dishes.js
+rest-server-passport/models/promotions.js
+rest-server-passport/models/leadership.js
+rest-server
