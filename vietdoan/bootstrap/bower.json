@@ -1,0 +1,29 @@
+{
+  "name": "bootstrap2",
+  "homepage": "https://github.com/vietdoan/TpcTraining",
+  "authors": [
+    "vietdoan"
+  ],
+  "description": "week4 course 2",
+  "main": "index.html",
+  "keywords": [
+    "bootstrap2",
+    "week4",
+    "conFusion",
+    "Fusion",
+    "Restaurant"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.6.3"
+  }
+}

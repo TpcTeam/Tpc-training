@@ -1,0 +1,27 @@
+{
+  "name": "bootstrap",
+  "homepage": "https://github.com/DinhManhHoang/TpcTraining",
+  "authors": [
+    "DinhManhHoang <dinhmanhhoang150197@gmail.com>"
+  ],
+  "description": "bootstrap learning project",
+  "main": "index.html",
+  "keywords": [
+    "bootstrap",
+    "css",
+    "html"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.6.3"
+  }
+}
