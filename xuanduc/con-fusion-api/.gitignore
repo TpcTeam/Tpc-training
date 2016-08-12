@@ -1,5 +1,1 @@
-.DS_Store
-node-express
-node-express-gen
-mongodb
-node-mongodb
+node_modules
