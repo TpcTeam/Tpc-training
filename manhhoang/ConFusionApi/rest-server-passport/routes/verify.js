@@ -23,11 +23,6 @@ exports.verifyOrdinaryUser = function (req, res, next) {
       } else {
       	// if everything is good, save to request for use in other routes
         req.decoded = decoded;
-				if (req.decoded._doc.username === 'Dinh Manh Hoang') {
-					req.decoded._doc.admin = true;
-				} else {
-					req.decoded._doc.admin = false;
-				}
 				console.log(req.decoded._doc);
         next();
       }

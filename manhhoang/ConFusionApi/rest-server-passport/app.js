@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var authenticate = require('./authenticate');
 
 var config = require('./config');
 
@@ -23,8 +24,18 @@ var users = require('./routes/userRouter');
 var dishRouter = require('./routes/dishRouter');
 var promoRouter = require('./routes/promoRouter');
 var leaderRouter = require('./routes/leaderRouter');
+var favRouter = require('./routes/favoriteRouter');
 
 var app = express();
+
+app.all('*', function(req, res, next){
+  console.log('req start: ', req.secure, req.hostname, req.url);
+	if (req.secure) {
+    return next();
+  };
+	// use 307 or 308 status code to redirect URL totally. If not specified, 302 status code will be used, and all POST methods are going to be replaced by a GET method, therefore we can't use the '/login', '/logout', '/register' routes. 
+ 	res.redirect(308, 'https://'+req.hostname+':'+app.get('secPort')+req.url);
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -38,9 +49,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // passport config
-var User = require('./models/user');
 app.use(passport.initialize());
-passport.use(new LocalStrategy(User.authenticate()));
+var User = require('./models/user');
+exports.local = passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -51,6 +62,7 @@ app.use('/users', users);
 app.use('/dishes',dishRouter);
 app.use('/promotions',promoRouter);
 app.use('/leadership',leaderRouter);
+app.use('/favorites', favRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
