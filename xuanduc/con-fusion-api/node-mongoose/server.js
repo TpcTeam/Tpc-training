@@ -84,7 +84,6 @@ db.once('open', function () {
   });
 
   setTimeout(function () {
-
     db.close();
   }, 3000);
 

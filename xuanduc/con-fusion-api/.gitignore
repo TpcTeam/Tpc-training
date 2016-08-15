@@ -1,1 +1,9 @@
-node_modules
+.DS_Store
+node-express
+node-express-gen
+mongodb
+node-mongodb
+node-mongoose
+rest-server-passport
+basic-auth
+npm-debug
